@@ -23,14 +23,17 @@ wg genkey | tee /etc/wireguard/{title_private_key} | wg pubkey | tee /etc/wiregu
 
 --- 
 
+### Полезные команды
 Добавление нового клиента:
 ```bash
 ./create-user {login}
 ```
+
 Просмотр всех клиентов и их IP:
 ```bash
 ./show
 ```
+
 Отображение свободного IP:
 ```bash
 ./free
