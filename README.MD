@@ -1,32 +1,52 @@
+Cоздание ключа для сервера
+```bash
 wg genkey | tee /etc/wireguard/{title_private_key} | wg pubkey | tee /etc/wireguard/{title_pub_key}
-Restart service: wg-quick@wg0.service
-Status service: systemctl restart wg-quick@wg0.sevice
+```
 
-Run service as user: systemctl --user {X} start {service}
+Restart service: 
+```bash
+wg-quick@wg0.service
+```
+Status service: 
+```bash
+systemctl restart wg-quick@wg0.sevice
+```
+
+Run service as user: 
+```bash
+systemctl --user {X} start {service}
+```
 
 Dump network (logs)
+```bash
 tcpdump -tni any 'udp port 51830' >> /var/log/wireguard/wireguard.log
+```
 
-Add new user
-- add peer.template in wg0.conf
-- generate private and public key user:  
+Add new user:
+1. add peer.template in wg0.conf
+2. generate private and public key user:  
 
 WINDOWS
-- Скопировать по ssh файл конфиг: wg0.conf находящийся в папке пользователя
-- Через Планировщик заданий указать
+1. Скопировать по ssh файл конфиг: wg0.conf находящийся в папке пользователя
+2. Через Планировщик заданий указать
   - Сценарий: PATH to wireguard.exe
   - Триггер: запуск компьютера
   - Аргументы: /installtunnelservice "PATH to wg0.conf"
 
 LINUX
-- apt install resolvconf
-- apt install wireguard
-- Execute: ./create-user login 
-- Скопировать по ssh файл конфиг: wg0.conf находящийся в папке пользователя в папку: /etc/wireguard/wg0.conf
-- wg-quick up wg0
-- wg
+1. apt install resolvconf
+2. apt install wireguard
+3. Execute: ./create-user login 
+4. Скопировать по ssh файл конфиг: wg0.conf находящийся в папке пользователя в папку: /etc/wireguard/wg0.conf
+5. wg-quick up wg0
+6. wg
 
 Enable with start boot: 
-- systemctl enable wg-quick@wg0
+```bash
+systemctl enable wg-quick@wg0
+```
+
 Disable with start boot: systemctl
-- systemctl disable wg-quick@wg0 
+```bash
+systemctl disable wg-quick@wg0 
+```
