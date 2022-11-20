@@ -1,0 +1,2 @@
+echo "Start create user: "$1
+python3 /home/wireguard/wireguard.conf/utils/main.py -create $1

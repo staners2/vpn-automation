@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "Ультимативная автоматизация VPN"
+version = "0.1.0"
+description = "Набор скриптов для эксплуатации VPN"
+authors = ["Aratin Dima <dima.aratin@mail.ru>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+colorama = "^0.4.5"
+argparse = "^1.4.0"
+pathlib = "^1.0.1"
+ipaddress = "^1.0.23"
+chevron = "^0.14.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
